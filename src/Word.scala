@@ -3,11 +3,11 @@ import scala.io.Source
 /**
  * @author test
  */
-object Word {
+object WordCount {
   
   val map = new HashMap[String, Integer]()
   
-  def countWord(words: Array[String]) {
+  def countWords(words: Array[String]) {
     for(word <- words) {
       
         if(map.contains(word)) {
