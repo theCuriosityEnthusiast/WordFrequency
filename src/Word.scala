@@ -5,31 +5,29 @@ import scala.io.Source
  */
 object Word {
   
-  var map = new HashMap[String, Integer]()
+  val map = new HashMap[String, Integer]()
   
-  def ReadFile(file: String) {
+  def countWord(words: Array[String]) {
+    for(word <- words) {
       
-  }
-  
-  
-  def main(args: Array[String]) {
-      //map.foreach(println)
- 
-    val filename = "C://Users//test//workspace//WordFreq//filename.txt"
-    for (line <- Source.fromFile(filename).getLines()) {
-      var words = line.split(" ")
-      
-      for(word <- words) {
         if(map.contains(word)) {
           map.put(word, map(word)+1)
         } else {
            map.put(word, 1)
         }
       }
+  }
+    
+  def main(args: Array[String]) {
+ 
+    val filename = "C://Users//test//workspace//WordFreq//Wordfrequency//filename.txt"
+    for (line <- Source.fromFile(filename).getLines()) {
+      val words = line.split(" ")
       
+      countWord(words)      
     }
-    val list = map.toSeq.sortWith(_._2 < _._2)
-    list.foreach(println)
+    val list = map.toSeq.sortWith(_._2 > _._2)
+    list.view(0, 9).foreach(println)
    }
   
 }
