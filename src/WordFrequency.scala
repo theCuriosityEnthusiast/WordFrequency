@@ -3,17 +3,17 @@ import scala.io.Source
 /**
  * @author test
  */
-object WordFrequency {
+object Word {
   
   val wordCount = new HashMap[String, Integer]()
   
   def countFreq(words: Array[String]) {
     for(word <- words) {
-      
-        if(wordCount.contains(word)) {
-          wordCount.put(word, wordCount(word)+1)
+        val lowerCaseWord = word.toLowerCase()
+        if(wordCount.contains(lowerCaseWord)) {
+          wordCount.put(lowerCaseWord, wordCount(lowerCaseWord)+1)
         } else {
-           wordCount.put(word, 1)
+           wordCount.put(lowerCaseWord, 1)
         }
       }
   }
