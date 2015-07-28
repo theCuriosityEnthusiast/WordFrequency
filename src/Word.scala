@@ -3,17 +3,17 @@ import scala.io.Source
 /**
  * @author test
  */
-object WordCount {
+object Word {
   
-  val map = new HashMap[String, Integer]()
+  val wordCount = new HashMap[String, Integer]()
   
-  def countWords(words: Array[String]) {
+  def countFreq(words: Array[String]) {
     for(word <- words) {
       
-        if(map.contains(word)) {
-          map.put(word, map(word)+1)
+        if(wordCount.contains(word)) {
+          wordCount.put(word, wordCount(word)+1)
         } else {
-           map.put(word, 1)
+           wordCount.put(word, 1)
         }
       }
   }
@@ -24,9 +24,9 @@ object WordCount {
     for (line <- Source.fromFile(filename).getLines()) {
       val words = line.split(" ")
       
-      countWord(words)      
+      countFreq(words)      
     }
-    val list = map.toSeq.sortWith(_._2 > _._2)
+    val list = wordCount.toSeq.sortWith(_._2 > _._2)
     list.view(0, 9).foreach(println)
    }
   
