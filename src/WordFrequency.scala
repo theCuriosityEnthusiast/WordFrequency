@@ -3,7 +3,7 @@ import scala.io.Source
 /**
  * @author test
  */
-object Word {
+object WordFrequency {
   
   val wordCount = new HashMap[String, Integer]()
   
